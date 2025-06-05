@@ -5,11 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>부동산 매매 시뮬레이션</title>
 <style>
-  body { font-family: Arial, sans-serif; margin: 0; padding: 0; display: flex; justify-content: center; align-items: center; min-height: 100vh; overflow: hidden; }
+  html, body { height: 100%; margin: 0; padding: 0; }
+  body { font-family: Arial, sans-serif; display: flex; justify-content: center; align-items: flex-start; min-height: 100vh; overflow-y: auto; background: #f0f0f0; }
   .slideshow { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; }
   .slide { position: absolute; width: 100%; height: 100%; background-size: cover; background-position: center; opacity: 0; transition: opacity 1s ease-in-out; }
   .slide.active { opacity: 1; }
-  .container { background: rgba(255,255,255,0.95); padding: 20px; border-radius: 10px; max-width: 400px; width: 90%; box-sizing: border-box; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+  .container { background: rgba(255, 255, 255, 0.95); padding: 20px; border-radius: 10px; max-width: 400px; width: 90%; box-sizing: border-box; box-shadow: 0 0 10px rgba(0,0,0,0.1); margin: 20px 0; }
   label { display: block; margin-top: 10px; font-weight: bold; text-align: left; }
   input { width: 100%; padding: 14px; margin-top: 5px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; font-size: 1rem; }
   button { margin-top: 15px; padding: 14px; width: 100%; background: #007BFF; color: #fff; border: none; border-radius: 4px; cursor: pointer; font-size: 1rem; }
@@ -25,19 +26,12 @@
 
 <div class="container">
 <h2>부동산 매매 시뮬레이션</h2>
-
-<label>매수 주택 가격 (만원)</label>
-<input type="number" id="buyPrice">
-<label>매도 주택 가격 (만원)</label>
-<input type="number" id="sellPrice">
-<label>전월세 보증금 (만원, 없으면 실거주)</label>
-<input type="number" id="deposit">
-<label>인테리어 비용 (만원)</label>
-<input type="number" id="interiorCost">
-<label>주택담보대출 이자율 (연 %)</label>
-<input type="number" id="interestRate" step="0.01">
-<label>차용 가능한 돈 (만원)</label>
-<input type="number" id="availableMoney">
+<label>매수 주택 가격 (만원)</label><input type="number" id="buyPrice">
+<label>매도 주택 가격 (만원)</label><input type="number" id="sellPrice">
+<label>전월세 보증금 (만원, 없으면 실거주)</label><input type="number" id="deposit">
+<label>인테리어 비용 (만원)</label><input type="number" id="interiorCost">
+<label>주택담보대출 이자율 (연 %)</label><input type="number" id="interestRate" step="0.01">
+<label>차용 가능한 돈 (만원)</label><input type="number" id="availableMoney">
 <button onclick="calculate()">계산하기</button>
 
 <div class="result" id="result"></div>
